@@ -2,6 +2,7 @@
 
 Portfolio and agency website for **VayalCode**, built with React, TypeScript, Vite, Tailwind CSS, GSAP ScrollTrigger, Lenis, and Framer Motion.
 
+- **Live Demo**: [sundar-protfilio.vercel.app](https://sundar-protfilio.vercel.app/)
 - **Repository**: [github.com/Sudharsan0727/Sundar_protfilio](https://github.com/Sudharsan0727/Sundar_protfilio)
 
 ---
