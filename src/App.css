@@ -1,0 +1,42 @@
+.app-root {
+  position: relative;
+  min-height: 100vh;
+  background-color: #0a0c0a;
+}
+
+/* Floating demo switcher moved to bottom left side */
+.season-switcher {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  z-index: 99999;
+  display: flex;
+  gap: 8px;
+  background: rgba(20, 24, 20, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  padding: 4px 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.season-btn {
+  background: transparent;
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.season-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.season-btn.active {
+  background: rgba(255, 255, 255, 0.2);
+}
