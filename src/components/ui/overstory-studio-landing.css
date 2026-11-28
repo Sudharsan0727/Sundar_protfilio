@@ -5164,7 +5164,7 @@
 }
 
 /* responsive */
-@media (max-width:1020px) {
+@media (max-width:1120px) {
     .ovs-links {
         display: none
     }
@@ -5176,6 +5176,9 @@
     .ovs-nav-in {
         justify-content: space-between
     }
+}
+
+@media (max-width:1020px) {
 
     .ovs-plans {
         grid-template-columns: 1fr;
@@ -6856,5 +6859,50 @@ html.ovs-has-cursor * {
     .ovs-cursor-arrow,
     .ovs-cursor-pill {
         display: none !important;
+    }
+}
+
+/* ==========================================================================
+   Mobile Responsive Polish (All New Sections & Header/Footer)
+   ========================================================================== */
+@media (max-width: 640px) {
+    .ovs-brand-logo {
+        height: 34px;
+    }
+
+    .ovs-brand-logo-foot {
+        height: 56px;
+    }
+
+    .ovs-testi-glow {
+        width: 300px;
+        height: 300px;
+    }
+
+    .ovs-testi-card.is-on {
+        transform: scale(1.01);
+    }
+
+    .ovs-ads {
+        padding: 56px 0;
+    }
+
+    .ovs-qt-stats {
+        gap: 10px;
+    }
+
+    .ovs-qt-stat b {
+        font-size: 20px;
+    }
+
+    .ovs-news-row {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 520px) {
+    .ovs-foot-cols {
+        grid-template-columns: 1fr;
+        row-gap: 28px;
     }
 }

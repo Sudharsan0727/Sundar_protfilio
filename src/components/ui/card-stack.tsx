@@ -133,6 +133,18 @@ export function CardStack<T extends CardStackItem>({
     wrapIndex(initialIndex, len),
   );
   const [hovering, setHovering] = React.useState(false);
+  const [vw, setVw] = React.useState(() =>
+    typeof window !== "undefined" ? window.innerWidth : 1200,
+  );
+
+  React.useEffect(() => {
+    const onResize = () => setVw(window.innerWidth);
+    window.addEventListener("resize", onResize, { passive: true });
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  const effWidth = vw < 640 ? Math.min(cardWidth, vw - 36) : cardWidth;
+  const effHeight = Math.round(effWidth * (cardHeight / cardWidth));
 
   // keep active in bounds if items change
   React.useEffect(() => {
@@ -211,7 +223,7 @@ export function CardStack<T extends CardStackItem>({
       {/* Stage */}
       <div
         className="relative w-full"
-        style={{ height: Math.max(380, cardHeight + 52) }}
+        style={{ height: Math.max(250, effHeight + 52) }}
         tabIndex={0}
         onKeyDown={onKeyDown}
       >
@@ -242,7 +254,7 @@ export function CardStack<T extends CardStackItem>({
 
               // fan geometry
               const rotateZ = off * stepDeg;
-              const cardSpacing = Math.max(10, Math.round(cardWidth * (1 - overlap)));
+              const cardSpacing = Math.max(10, Math.round(effWidth * (1 - overlap)));
               const x = off * cardSpacing;
               const y = 0; // level baseline so side cards do not dip down towards dots
               const z = -abs * depthPx;
@@ -269,7 +281,7 @@ export function CardStack<T extends CardStackItem>({
                       if (reduceMotion) return;
                       const travel = info.offset.x;
                       const v = info.velocity.x;
-                      const threshold = Math.min(160, cardWidth * 0.22);
+                      const threshold = Math.min(160, effWidth * 0.22);
 
                       // swipe logic
                       if (travel > threshold || v > 650) prev();
@@ -289,10 +301,10 @@ export function CardStack<T extends CardStackItem>({
                       : "cursor-pointer",
                   )}
                   style={{
-                    width: cardWidth,
+                    width: effWidth,
                     maxWidth: "calc(100vw - 32px)",
-                    height: cardHeight,
-                    left: `calc(50% - min(${cardWidth}px, calc(100vw - 32px)) / 2)`,
+                    height: effHeight,
+                    left: `calc(50% - min(${effWidth}px, calc(100vw - 32px)) / 2)`,
                     zIndex,
                     transformStyle: "preserve-3d",
                   }}

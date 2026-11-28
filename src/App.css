@@ -40,3 +40,17 @@
 .season-btn.active {
   background: rgba(255, 255, 255, 0.2);
 }
+
+@media (max-width: 560px) {
+  .season-switcher {
+    bottom: 10px;
+    left: 10px;
+    padding: 3px 6px;
+    gap: 4px;
+  }
+
+  .season-btn {
+    padding: 4px 9px;
+    font-size: 11px;
+  }
+}
